@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-one-third">
+      <h1 class="title has-text-centered">Log in</h1>
+
+      <%= form_with(url: login_path, local: true, class: 'box') do |form| %>
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control has-icons-left">
+            <%= form.email_field :email, class: 'input', placeholder: "Email" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control has-icons-left">
+            <%= form.password_field :password, class: 'input', placeholder: "Password" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= form.submit 'Log in', class: 'button is-primary is-fullwidth' %>
+          </div>
+        </div>
+
+        <div class="field has-text-centered">
+          <%= link_to 'Sign up', new_user_path, class: 'button is-text' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

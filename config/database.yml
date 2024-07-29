@@ -1,0 +1,29 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: postgres
+  prepared_statements: false
+  username: postgres.bzcwzvgzwfhqusydyauu
+  password: diuwvtr7BzJ8tFte
+  host: aws-0-sa-east-1.pooler.supabase.com
+  port: 6543
+
+test:
+  <<: *default
+  database: postgres
+  username: postgres.bzcwzvgzwfhqusydyauu
+  password: diuwvtr7BzJ8tFte
+  host: aws-0-sa-east-1.pooler.supabase.com
+  port: 6543
+
+production:
+  <<: *default
+  database: postgres
+  username: postgres.bzcwzvgzwfhqusydyauu
+  password: diuwvtr7BzJ8tFte
+  host: aws-0-sa-east-1.pooler.supabase.com
+  port: 6543

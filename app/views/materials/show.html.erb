@@ -1,0 +1,17 @@
+<p>
+  <strong>Title:</strong>
+  <%= @material.titulo %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @material.contenido %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @material.course.nombre %>
+</p>
+
+<%= link_to 'Edit', edit_material_path(@material) %> |
+<%= link_to 'Back', materials_path %>

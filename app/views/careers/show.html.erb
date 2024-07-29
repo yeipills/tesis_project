@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%= @career.nombre %>
+</p>
+
+<p>
+  <strong>University:</strong>
+  <%= @career.university.nombre %>
+</p>
+
+<%= link_to 'Edit', edit_career_path(@career) %> |
+<%= link_to 'Back', careers_path %>
