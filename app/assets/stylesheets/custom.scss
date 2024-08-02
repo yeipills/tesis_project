@@ -1,0 +1,21 @@
+@import "bulma";
+@import "font-awesome";
+
+
+.hero.is-fullheight {
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.box {
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.button.is-fullwidth {
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  margin-bottom: 2rem;
+}

@@ -1,13 +1,10 @@
-<!-- app/views/users/index.html.erb -->
-
 <div class="container">
-  <h1 class="title">Users</h1>
-  <table class="table">
+  <h1 class="title has-text-centered">Listing Users</h1>
+  <table class="table is-striped is-hoverable is-fullwidth">
     <thead>
       <tr>
-        <th>Full Name</th>
+        <th>Nombre Completo</th>
         <th>Email</th>
-        <th>Username</th>
       </tr>
     </thead>
     <tbody>
@@ -15,7 +12,6 @@
         <tr>
           <td><%= user.nombre_completo %></td>
           <td><%= user.email %></td>
-          <td><%= user.user_name %></td>
         </tr>
       <% end %>
     </tbody>

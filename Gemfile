@@ -77,3 +77,5 @@ gem 'bulma-rails'
 gem 'sassc-rails'
 # Gemfile
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem "font-awesome-rails"

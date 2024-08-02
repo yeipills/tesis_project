@@ -1,69 +1,55 @@
-<div class="container">
-  <div class="columns is-centered">
-    <div class="column is-one-third">
-      <h1 class="title has-text-centered">Sign up</h1>
-
-      <%= form_with(model: @user, local: true, class: 'box') do |form| %>
-        <div class="field">
-          <label class="label">Full Name</label>
-          <div class="control has-icons-left">
-            <%= form.text_field :nombre_completo, class: 'input', placeholder: "Full Name" %>
-            <span class="icon is-small is-left">
-              <i class="fas fa-user"></i>
-            </span>
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">Welcome to LearnU</h1>
+      <div class="box">
+        <h2 class="subtitle">Sign Up</h2>
+        <%= form_with(model: @user, local: true) do |form| %>
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <div class="control">
+                  <%= form.text_field :nombre_completo, placeholder: "Full Name", class: "input" %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <%= form.email_field :email, placeholder: "Email", class: "input" %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <%= form.text_field :user_name, placeholder: "User Name", class: "input" %>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="field">
+                <div class="control">
+                  <%= form.password_field :password, placeholder: "Password", class: "input" %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <%= form.password_field :password_confirmation, placeholder: "Confirm Password", class: "input" %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <%= form.collection_select :career_id, Career.all, :id, :nombre, { prompt: "Select a career" }, class: "input" %>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Email</label>
-          <div class="control has-icons-left">
-            <%= form.email_field :email, class: 'input', placeholder: "Email" %>
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
+          <div class="field">
+            <div class="control">
+              <%= form.submit "SIGN UP", class: "button is-link is-fullwidth" %>
+            </div>
           </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Username</label>
-          <div class="control has-icons-left">
-            <%= form.text_field :user_name, class: 'input', placeholder: "Username" %>
-            <span class="icon is-small is-left">
-              <i class="fas fa-user-circle"></i>
-            </span>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Password</label>
-          <div class="control has-icons-left">
-            <%= form.password_field :password, class: 'input', placeholder: "Password" %>
-            <span class="icon is-small is-left">
-              <i class="fas fa-lock"></i>
-            </span>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Password Confirmation</label>
-          <div class="control has-icons-left">
-            <%= form.password_field :password_confirmation, class: 'input', placeholder: "Password Confirmation" %>
-            <span class="icon is-small is-left">
-              <i class="fas fa-lock"></i>
-            </span>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="control">
-            <%= form.submit 'Sign up', class: 'button is-primary is-fullwidth' %>
-          </div>
-        </div>
-
-        <div class="field has-text-centered">
-          <%= link_to 'Log in', login_path, class: 'button is-text' %>
-        </div>
-      <% end %>
+        <% end %>
+        <p>or sign up with</p>
+        <button class="button is-fullwidth">G Google</button>
+      </div>
     </div>
   </div>
-</div>
+</section>
