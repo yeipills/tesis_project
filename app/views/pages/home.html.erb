@@ -1,65 +1,123 @@
-<!-- app/views/pages/home.html.erb -->
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>LearnU</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', media: 'all' %>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UBB Cyber Security Academy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 <body>
-  <%= render 'layouts/sidebar' %>
-
-  <div class="main-content">
-    <section class="section">
-      <div class="container">
-        <h1 class="title">Welcome to Our Website</h1>
-        <p class="subtitle">We are delighted to have you here. Explore our services and find out what we can do for you.</p>
-        <div class="columns is-multiline">
-          <div class="column is-one-third">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="<%= asset_path('office.jpg') %>" alt="Our Office">
-                </figure>
-              </div>
-              <div class="card-content">
-                <p class="title is-4">Our Office</p>
-                <p>Discover our modern and comfortable office space designed to foster creativity and productivity.</p>
-              </div>
-            </div>
-          </div>
-          <div class="column is-one-third">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="<%= asset_path('team.jpg') %>" alt="Our Team">
-                </figure>
-              </div>
-              <div class="card-content">
-                <p class="title is-4">Our Team</p>
-                <p>Meet the dedicated team members who work tirelessly to provide the best services to our clients.</p>
-              </div>
-            </div>
-          </div>
-          <div class="column is-one-third">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="<%= asset_path('resources.jpg') %>" alt="Our Resources">
-                </figure>
-              </div>
-              <div class="card-content">
-                <p class="title is-4">Our Resources</p>
-                <p>Explore the wide range of tools and resources we offer to help our clients achieve their goals.</p>
-              </div>
+  <!-- Navbar -->
+  <nav class="navbar is-fixed-top">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <img src="path_to_logo" alt="UBBCSA">
+        </a>
+        <span class="navbar-burger" data-target="navbarMenu">
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="#">Cursos</a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <%= link_to "Registrarse", signup_path, class: "button is-primary" %>
+              <%= link_to "Iniciar sesión", login_path, class: "button is-light" %>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </nav>
+
+  <!-- Sección de Hero -->
+  <section class="hero is-medium is-primary is-bold">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">
+          UBB Cyber Security Academy
+        </h1>
+        <a href="#" class="button is-dark">Comenzar</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Sección de Testimonios -->
+  <section class="section testimonials has-background-light">
+    <div class="container">
+      <h2 class="title has-text-centered">Únete a nuestra comunidad de aprendizaje y conéctate con más de -1 usuarios</h2>
+        <div class="columns">
+          <div class="column">
+            <div class="box">
+              <p>"La academia me ha proporcionado las habilidades necesarias para proteger nuestros sistemas."</p>
+              <p><strong>Emily R.</strong> Especialista en Seguridad Informática</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <p>"Gracias a esta plataforma, ahora puedo detectar y prevenir ciberataques con eficacia."</p>
+              <p><strong>Max L.</strong> Analista de Ciberseguridad</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <p>"La ciberseguridad es mi pasión y esta academia ha sido clave para mi desarrollo."</p>
+              <p><strong>Ella P.</strong> Consultora de Ciberseguridad</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <p>"Me siento seguro y empoderado para enfrentar los desafíos de la ciberseguridad."</p>
+              <p><strong>Liam G.</strong> Coordinador de Seguridad</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Footer -->
+  <footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+      <div class="columns">
+        <div class="column">
+          <h4 class="title is-5 has-text-white">LearnJoy</h4>
+          <p>Sobre nuestra plataforma</p>
+          <p>Nuestra historia</p>
+
+        </div>
+        <div class="column">
+          <h4 class="title is-5 has-text-white">Obtener ayuda</h4>
+          <p>Soporte estudiantil</p>
+          <p>Preguntas </p>
+          <p>Necesitas asistencia</p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html>
