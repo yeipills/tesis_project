@@ -1,55 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MyApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', media: 'all' %>
-  </head>
-  <body>
-    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="<%= root_path %>">
-          <img src="<%= asset_path('logo.png') %>" alt="Logo">
-        </a>
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
+<head>
+  <title>MyApp</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', media: 'all' %>
+</head>
+<body>
 
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item" href="<%= root_path %>">
-            Home
-          </a>
-          <a class="navbar-item" href="<%= new_user_path %>">
-            Sign up
-          </a>
-          <a class="navbar-item" href="<%= login_path %>">
-            Log in
-          </a>
-        </div>
-      </div>
-    </nav>
-
-    <section class="section">
-      <div class="container">
-        <% if flash[:notice] %>
-          <div class="notification is-primary">
-            <%= flash[:notice] %>
-          </div>
-        <% elsif flash[:alert] %>
-          <div class="notification is-danger">
-            <%= flash[:alert] %>
-          </div>
-        <% end %>
 
         <%= yield %>
-      </div>
-    </section>
-  </body>
+
+</body>
 </html>

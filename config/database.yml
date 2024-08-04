@@ -2,28 +2,18 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
+  host: <%= ENV['SUPABASE_HOST'] %>
+  port: <%= ENV['SUPABASE_PORT'] %>
+  username: <%= ENV['SUPABASE_USERNAME'] %>
+  password: <%= ENV['SUPABASE_PASSWORD'] %>
+  database: <%= ENV['SUPABASE_DATABASE'] %>
+  prepared_statements: false
 
 development:
   <<: *default
-  database: postgres
-  prepared_statements: false
-  username: postgres.bzcwzvgzwfhqusydyauu
-  password: diuwvtr7BzJ8tFte
-  host: aws-0-sa-east-1.pooler.supabase.com
-  port: 6543
 
 test:
   <<: *default
-  database: postgres
-  username: postgres.bzcwzvgzwfhqusydyauu
-  password: diuwvtr7BzJ8tFte
-  host: aws-0-sa-east-1.pooler.supabase.com
-  port: 6543
 
 production:
   <<: *default
-  database: postgres
-  username: postgres.bzcwzvgzwfhqusydyauu
-  password: diuwvtr7BzJ8tFte
-  host: aws-0-sa-east-1.pooler.supabase.com
-  port: 6543

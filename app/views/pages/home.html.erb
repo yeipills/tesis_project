@@ -1,14 +1,65 @@
 <!-- app/views/pages/home.html.erb -->
-<div class="container">
-  <h1 class="title">Welcome to LearnU</h1>
-  <p>Find out what topics you find interesting, learn a new skill & connect with people that are passionate about similar topics.</p>
-  <div class="buttons">
-    <a href="<%= login_path %>" class="button is-link">Login</a>
-    <a href="<%= signup_path %>" class="button is-primary">Sign Up</a>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LearnU</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', media: 'all' %>
+</head>
+<body>
+  <%= render 'layouts/sidebar' %>
+
+  <div class="main-content">
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Welcome to Our Website</h1>
+        <p class="subtitle">We are delighted to have you here. Explore our services and find out what we can do for you.</p>
+        <div class="columns is-multiline">
+          <div class="column is-one-third">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="<%= asset_path('office.jpg') %>" alt="Our Office">
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Our Office</p>
+                <p>Discover our modern and comfortable office space designed to foster creativity and productivity.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-one-third">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="<%= asset_path('team.jpg') %>" alt="Our Team">
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Our Team</p>
+                <p>Meet the dedicated team members who work tirelessly to provide the best services to our clients.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-one-third">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="<%= asset_path('resources.jpg') %>" alt="Our Resources">
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Our Resources</p>
+                <p>Explore the wide range of tools and resources we offer to help our clients achieve their goals.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
-  <div class="images">
-    <!-- Añade tus imágenes aquí -->
-    <img src="path/to/your/image1.png" alt="Image 1">
-    <img src="path/to/your/image2.png" alt="Image 2">
-  </div>
-</div>
+</body>
+</html>
