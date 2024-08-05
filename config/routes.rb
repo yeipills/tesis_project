@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :enrollments
   resources :notifications
 
-  get 'signup', to: 'users#new', as: 'signup'
+  get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
 
   get 'login', to: 'sessions#new'
@@ -23,4 +23,9 @@ Rails.application.routes.draw do
   # Rutas para OmniAuth
   get '/auth/:provider/callback', to: 'sessions#google_auth'
   get '/auth/failure', to: redirect('/')
+
+  # Rutas de errores
+  match '/404', to: 'errors#not_found', via: :all
+  match '/500', to: 'errors#internal_server_error', via: :all
+  match '/422', to: 'errors#unprocessable_entity', via: :all
 end

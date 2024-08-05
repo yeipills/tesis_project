@@ -1,55 +1,91 @@
-<section class="hero is-fullheight">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <h1 class="title">Welcome to LearnU</h1>
-      <div class="box">
-        <h2 class="subtitle">Sign Up</h2>
-        <%= form_with(model: @user, local: true) do |form| %>
-          <div class="columns ">
-            <div class="column">
-              <div class="field">
-                <div class="control">
-                  <%= form.text_field :nombre_completo, placeholder: "Full Name", class: "input" %>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <%= form.email_field :email, placeholder: "Email", class: "input" %>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <%= form.text_field :user_name, placeholder: "User Name", class: "input" %>
-                </div>
-              </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarse - UBBCSA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="signup.scss">
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <h1 class="title has-text-centered">Bienvenido a UBBCSA</h1>
+          <h2 class="subtitle has-text-centered">Registrarse</h2>
+          
+          <!-- Flash messages for errors and notifications -->
+          <% flash.each do |key, message| %>
+            <div class="notification is-<%= key == 'alert' ? 'danger' : 'primary' %>">
+              <button class="delete"></button>
+              <%= message %>
             </div>
-            <div class="column">
+          <% end %>
+
+          <div class="box">
+            <%= form_with url: signup_path, local: true do |form| %>
               <div class="field">
+                <label class="label">Nombre Completo</label>
                 <div class="control">
-                  <%= form.password_field :password, placeholder: "Password", class: "input" %>
+                  <%= form.text_field :full_name, class: "input", placeholder: "Nombre Completo" %>
                 </div>
               </div>
               <div class="field">
+                <label class="label">Email</label>
                 <div class="control">
-                  <%= form.password_field :password_confirmation, placeholder: "Confirm Password", class: "input" %>
+                  <%= form.email_field :email, class: "input", placeholder: "Email" %>
                 </div>
               </div>
               <div class="field">
+                <label class="label">Nombre de Usuario</label>
                 <div class="control">
-                  <%= form.collection_select :career_id, Career.all, :id, :nombre, { prompt: "Select a career" }, class: "input" %>
+                  <%= form.text_field :username, class: "input", placeholder: "Nombre de Usuario" %>
                 </div>
               </div>
-            </div>
+              <div class="field">
+                <label class="label">Carrera</label>
+                <div class="control">
+                  <%= form.collection_select :career_id, Career.all, :id, :nombre, { prompt: "Seleccione una carrera" }, class: "input" %>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Contraseña</label>
+                <div class="control">
+                  <%= form.password_field :password, class: "input", placeholder: "Contraseña" %>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Confirmar Contraseña</label>
+                <div class="control">
+                  <%= form.password_field :password_confirmation, class: "input", placeholder: "Confirmar Contraseña" %>
+                </div>
+              </div>
+              <div class="field is-grouped is-grouped-centered">
+                <div class="control">
+                  <%= form.submit "REGISTRARSE", class: "button is-dark" %>
+                </div>
+                <div class="control">
+                  <%= link_to "Registrarse con Google", "#", class: "button google" %>
+                </div>
+
+              </div>
+            <% end %>
           </div>
-          <div class="field">
-            <div class="control">
-              <%= form.submit "SIGN UP", class: "button is-link is-fullwidth" %>
-            </div>
-          </div>
-        <% end %>
-        <p>or sign up with</p>
-        <button class="button is-fullwidth">G Google</button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+        const $notification = $delete.parentNode;
+        $delete.addEventListener('click', () => {
+          $notification.parentNode.removeChild($notification);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
