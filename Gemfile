@@ -66,8 +66,8 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'pg' # Si usas PostgreSQL
-gem 'httparty' # Para realizar solicitudes HTTP
+gem 'pg'
+gem 'httparty' 
 gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'

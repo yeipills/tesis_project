@@ -3,55 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Main - LearnU</title>
+  <title>Main - CyberSec Academy</title>
   <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css' %>
   <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css' %>
-  <link rel="stylesheet" href="main.scss">
-  </head>
+  <%= stylesheet_link_tag 'sidebar' %>
+  <!--<%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track': 'reload' %> -->
+      <link rel="stylesheet" href="main.scss">
+
+  
+  <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/bulma-toast@3.0.0/dist/bulma-toast.min.js' %>
+</head>
 <body>
   <!-- Sidebar -->
   <aside class="menu">
-    <p class="menu-label">Menú</p>
+    <p class="menu-label">Menú de Seguridad</p>
     <ul class="menu-list">
-      <li><a class="is-active" href="#"><i class="fas fa-home"></i> Inicio</a></li>
-      <li><a href="#"><i class="fas fa-search"></i> Buscar</a></li>
-      <li><a href="#"><i class="fas fa-book"></i> Cursos</a></li>
-      <li><a href="#"><i class="fas fa-save"></i> Guardados</a></li>
-      <li><a href="#"><i class="fas fa-user"></i> Perfil</a></li>
+      <li><a class="is-active" href="#"><i class="fas fa-shield-alt"></i> Dashboard</a></li>
+      <li><a href="#"><i class="fas fa-network-wired"></i> Monitorización</a></li>
+      <li><a href="#"><i class="fas fa-user-shield"></i> Gestión de Riesgos</a></li>
+      <li><a href="#"><i class="fas fa-user-graduate"></i> Formación</a></li>
+      <li><a href="#"><i class="fas fa-bug"></i> Incidentes</a></li>
     </ul>
   </aside>
 
   <!-- Main Content -->
   <div class="container">
     <section class="section">
-      <h1 class="title">Cursos Destacados</h1>
+      <h1 class="title">Cursos Destacados en Ciberseguridad</h1>
       <div class="columns is-multiline">
         <div class="column is-3">
           <div class="card">
             <div class="card-content">
-              <p class="title is-4">Power BI</p>
+              <p class="title is-4">Análisis Forense Digital</p>
+              <p class="subtitle is-6">Dr. Jane Doe</p>
+              <p><i class="fas fa-clock"></i> 2h 15m</p>
+              <p><i class="fas fa-star"></i> 4.8/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="column is-3">
+          <div class="card">
+            <div class="card-content">
+              <p class="title is-4">Protección de Infraestructuras Críticas</p>
               <p class="subtitle is-6">John Eames</p>
-              <p><i class="fas fa-clock"></i> 1h 53m</p>
-              <p><i class="fas fa-star"></i> 4.9/5</p>
-            </div>
-          </div>
-        </div>
-        <div class="column is-3">
-          <div class="card">
-            <div class="card-content">
-              <p class="title is-4">Gestión de Proyectos Ágiles</p>
-              <p class="subtitle is-6">Curt Rits</p>
-              <p><i class="fas fa-clock"></i> 59m</p>
-              <p><i class="fas fa-star"></i> 4.3/5</p>
-            </div>
-          </div>
-        </div>
-        <div class="column is-3">
-          <div class="card">
-            <div class="card-content">
-              <p class="title is-4">Tablas Dinámicas</p>
-              <p class="subtitle is-6">Jane Doe</p>
-              <p><i class="fas fa-clock"></i> 1h 23m</p>
+              <p><i class="fas fa-clock"></i> 1h 40m</p>
               <p><i class="fas fa-star"></i> 4.6/5</p>
             </div>
           </div>
@@ -59,10 +54,20 @@
         <div class="column is-3">
           <div class="card">
             <div class="card-content">
-              <p class="title is-4">Power BI Avanzado</p>
+              <p class="title is-4">Gestión de Incidentes de Seguridad</p>
+              <p class="subtitle is-6">Curt Rits</p>
+              <p><i class="fas fa-clock"></i> 1h 20m</p>
+              <p><i class="fas fa-star"></i> 4.7/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="column is-3">
+          <div class="card">
+            <div class="card-content">
+              <p class="title is-4">Introducción a la Criptografía</p>
               <p class="subtitle is-6">Ian Brown</p>
-              <p><i class="fas fa-clock"></i> 1h 17m</p>
-              <p><i class="fas fa-star"></i> 4.1/5</p>
+              <p><i class="fas fa-clock"></i> 1h 10m</p>
+              <p><i class="fas fa-star"></i> 4.5/5</p>
             </div>
           </div>
         </div>
@@ -70,41 +75,41 @@
     </section>
 
     <section class="section">
-      <h1 class="title">Categorías</h1>
+      <h1 class="title">Categorías de Seguridad Informática</h1>
       <div class="buttons is-centered">
-        <button class="button is-light">Ventas</button>
-        <button class="button is-light">Recursos Humanos</button>
-        <button class="button is-light">Dibujo</button>
-        <button class="button is-light">Big Data</button>
-        <button class="button is-light">Diseño</button>
-        <button class="button is-light">Marketing</button>
-        <button class="button is-light">Astronomía</button>
+        <button class="button is-light">Criptografía</button>
+        <button class="button is-light">Defensa en Profundidad</button>
+        <button class="button is-light">Análisis Forense</button>
+        <button class="button is-light">Big Data Security</button>
+        <button class="button is-light">Pentesting</button>
+        <button class="button is-light">Gestión de Vulnerabilidades</button>
+        <button class="button is-light">Ciberinteligencia</button>
       </div>
     </section>
 
     <section class="section">
-      <h1 class="title">Mi Aprendizaje</h1>
+      <h1 class="title">Mi Aprendizaje en Seguridad</h1>
       <div class="columns">
         <div class="column is-6">
           <div class="card">
             <div class="card-content">
-              <p class="title is-4">Conviértete en Fotógrafo</p>
+              <p class="title is-4">Ingeniería Social: Técnicas y Prevención</p>
               <p class="subtitle is-6">Clara Manning</p>
-              <progress class="progress is-primary" value="69" max="100">69%</progress>
+              <progress class="progress is-primary" value="75" max="100">75%</progress>
             </div>
           </div>
         </div>
         <div class="column is-6">
           <div class="card">
             <div class="card-content">
-              <p class="title is-4">Design Thinking 2.0</p>
+              <p class="title is-4">Hacking Ético Avanzado</p>
               <p class="subtitle is-6">Chris Kinley</p>
-              <progress class="progress is-primary" value="27" max="100">27%</progress>
+              <progress class="progress is-primary" value="50" max="100">50%</progress>
             </div>
           </div>
         </div>
       </div>
-      <button class="button is-dark is-fullwidth">Ver Todos</button>
+      <button class="button is-dark is-fullwidth">Ver Todos los Cursos</button>
     </section>
   </div>
 
