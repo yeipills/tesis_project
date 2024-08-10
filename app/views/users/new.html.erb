@@ -25,13 +25,14 @@
           <% end %>
 
           <div class="box">
-            <%= form_with url: signup_path, local: true do |form| %>
+            <%= form_with model: @user, url: signup_path, local: true do |form| %>
               <div class="field">
                 <label class="label">Nombre Completo</label>
                 <div class="control">
-                  <%= form.text_field :full_name, class: "input", placeholder: "Nombre Completo" %>
+                  <%= form.text_field :nombre_completo, class: "input", placeholder: "Nombre Completo" %>
                 </div>
               </div>
+
               <div class="field">
                 <label class="label">Email</label>
                 <div class="control">
@@ -41,9 +42,10 @@
               <div class="field">
                 <label class="label">Nombre de Usuario</label>
                 <div class="control">
-                  <%= form.text_field :username, class: "input", placeholder: "Nombre de Usuario" %>
+                  <%= form.text_field :user_name, class: "input", placeholder: "Nombre de Usuario" %>
                 </div>
               </div>
+
               <div class="field">
                 <label class="label">Carrera</label>
                 <div class="control">
@@ -69,7 +71,9 @@
                 <div class="control">
                   <%= link_to "Registrarse con Google", "#", class: "button google" %>
                 </div>
-
+                <div class="control">
+                  <%= link_to "INICIAR SESIÓN", login_path, class: "button signup" %>
+                </div>
               </div>
             <% end %>
           </div>

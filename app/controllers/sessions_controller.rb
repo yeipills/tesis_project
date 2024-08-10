@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       if user.authenticate(params[:password])
         Rails.logger.info "Authentication successful"
         session[:user_id] = user.id
-        redirect_to root_path, notice: 'Logged in successfully'
+        redirect_to main_path, notice: 'Logged in successfully'
       else
         Rails.logger.info "Authentication failed"
         flash.now[:alert] = 'Invalid email or password'
@@ -22,10 +22,6 @@ class SessionsController < ApplicationController
       render :new
     end
   end
-
-#  def welcome
-  #  @user = User.new
- #end
 
   def destroy
     session[:user_id] = nil

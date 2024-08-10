@@ -1,7 +1,10 @@
+# config/routes.rb
 Rails.application.routes.draw do
   root 'pages#home'
   
-  get 'pages/home'
+  get 'main', to: 'pages#main'
+  get 'home', to: 'pages#home'
+
   resources :universities
   resources :careers
   resources :roles
@@ -18,7 +21,6 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  resources :users, only: [:new, :create]
 
   # Rutas para OmniAuth
   get '/auth/:provider/callback', to: 'sessions#google_auth'
