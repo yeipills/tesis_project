@@ -3,26 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Main - LearnU</title>
+  <title>Main - UBBCSA</title>
   <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css' %>
   <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css' %>
   <%= stylesheet_link_tag 'main' %> <!-- Referencia a main.scss -->
 </head>
 <body>
-  <!-- Sidebar -->
-  <aside class="menu" id="sidebar">
-    <button class="button is-small is-light" id="sidebar-toggle" aria-label="Toggle sidebar">
-      <i class="fas fa-bars"></i>
-    </button>
-    <p class="menu-label">Menú</p>
-    <ul class="menu-list">
-      <li><a class="is-active" href="#"><i class="fas fa-home"></i> Inicio</a></li>
-      <li><a href="#"><i class="fas fa-search"></i> Buscar</a></li>
-      <li><a href="#"><i class="fas fa-book"></i> Cursos</a></li>
-      <li><a href="#"><i class="fas fa-save"></i> Guardados</a></li>
-      <li><a href="#"><i class="fas fa-user"></i> Perfil</a></li>
-    </ul>
-  </aside>
+
+  <!-- Navbar -->
+  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">
+        <%= link_to image_tag('logo.png', alt: 'UBBCSA Logo'), main_path, class: 'navbar-item' %>
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item is-active" href="#">
+          <i class="fas fa-home"></i> <span class="navbar-title">Inicio</span>
+        </a>
+
+        <a class="navbar-item" href="#">
+          <i class="fas fa-book"></i> <span class="navbar-title">Cursos</span>
+        </a>
+      </div>
+
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">
+          <i class="fas fa-search"></i> <span class="navbar-title">Buscar</span>
+        </a>
+
+        <a class="navbar-item" href="#">
+          <i class="fas fa-save"></i> <span class="navbar-title">Guardados</span>
+        </a>
+
+        <a class="navbar-item" href="#">
+          <i class="fas fa-user"></i> <span class="navbar-title">Perfil</span>
+        </a>
+      </div>
+    </div>
+  </nav>
 
   <!-- Main Content -->
   <div class="container" id="main-content">
@@ -85,14 +112,19 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const sidebar = document.getElementById('sidebar');
-      const mainContent = document.getElementById('main-content');
-      const sidebarToggle = document.getElementById('sidebar-toggle');
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-      sidebarToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('is-collapsed');
-        mainContent.classList.toggle('is-expanded');
-      });
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
     });
   </script>
 </body>
