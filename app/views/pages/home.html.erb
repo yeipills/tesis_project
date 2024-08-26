@@ -4,23 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UBB Cyber Security Academy</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <link rel="stylesheet" href="styles.scss">
+  <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css' %>
+  <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %> <!-- Carga de estilos principales -->
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar is-fixed-top">
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item" href="#">
-          <img src="path_to_logo" alt="UBBCSA">
+        <%= link_to image_tag('logo.png', alt: 'UBBCSA Logo'), root_path, class: 'navbar-item' %>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
-        <span class="navbar-burger" data-target="navbarMenu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
       </div>
       <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-end">
@@ -42,7 +40,7 @@
         <h1 class="title">
           UBB Cyber Security Academy
         </h1>
-        <a href="#" class="button is-dark">Comenzar</a>
+        <%= link_to "Comenzar", login_path, class: "button is-dark" %> <!-- Redirección al login -->
       </div>
     </div>
   </section>
@@ -51,7 +49,7 @@
   <section class="section testimonials has-background-light">
     <div class="container">
       <h2 class="title has-text-centered">Únete a nuestra comunidad de aprendizaje y conéctate con más de 1 usuario</h2>
-      <div class="columns is-multiline">
+      <div class="columns is-multiline is-centered">
         <div class="column is-12-mobile is-6-tablet is-3-desktop">
           <div class="box">
             <p>"La academia me ha proporcionado las habilidades necesarias para proteger nuestros sistemas."</p>
@@ -83,7 +81,7 @@
   <!-- Sección de Footer -->
   <footer class="footer has-background-dark">
     <div class="content has-text-centered has-text-white">
-      <div class="columns is-multiline">
+      <div class="columns is-centered is-multiline">
         <div class="column is-12-mobile is-6-tablet is-3-desktop">
           <h4 class="title is-5 has-text-white">LearnJoy</h4>
           <p>Sobre nuestra plataforma</p>
@@ -101,9 +99,9 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-      if ($navbarBurgers.length > 0) {
-        $navbarBurgers.forEach(el => {
+      const navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      if (navbarBurgers.length > 0) {
+        navbarBurgers.forEach(el => {
           el.addEventListener('click', () => {
             const target = el.dataset.target;
             const $target = document.getElementById(target);

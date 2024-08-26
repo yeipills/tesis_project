@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - UBBCSA</title>
+  <title>Iniciar Sesión - UBBCSA</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <link rel="stylesheet" href="login.scss">
+  <link rel="stylesheet" href="signup.scss">
 </head>
 <body>
   <section class="section">
@@ -14,8 +14,8 @@
       <div class="columns is-centered">
         <div class="column is-half">
           <h1 class="title has-text-centered">Bienvenido a UBBCSA</h1>
-          <h2 class="subtitle has-text-centered">Iniciar sesión</h2>
-
+          <h2 class="subtitle has-text-centered">Iniciar Sesión</h2>
+          
           <!-- Flash messages for errors and notifications -->
           <% flash.each do |key, message| %>
             <div class="notification is-<%= key == 'alert' ? 'danger' : 'primary' %>">
@@ -32,21 +32,25 @@
                   <%= form.email_field :email, class: "input", placeholder: "Email" %>
                 </div>
               </div>
+
               <div class="field">
                 <label class="label">Contraseña</label>
                 <div class="control">
                   <%= form.password_field :password, class: "input", placeholder: "Contraseña" %>
                 </div>
               </div>
-              <div class="field is-grouped is-grouped-centered">
-                <div class="control">
-                  <%= form.submit "LOGIN", class: "button is-dark" %>
-                </div>
-                <div class="control">
-                  <%= link_to "Iniciar sesión con Google", "#", class: "button google" %>
-                </div>
-                <div class="control">
-                  <%= link_to "REGISTRARSE", signup_path, class: "button signup" %>
+
+              <div class="field">
+                <div class="button-container">
+                  <div class="column">
+                    <%= form.submit "INICIAR SESIÓN", class: "button is-dark is-fullwidth" %>
+                  </div>
+                  <div class="column">
+                    <%= link_to "Iniciar con Google", "#", class: "button google is-fullwidth" %>
+                  </div>
+                  <div class="column">
+                    <%= link_to "Registrarse", signup_path, class: "button signup is-fullwidth" %>
+                  </div>
                 </div>
               </div>
             <% end %>

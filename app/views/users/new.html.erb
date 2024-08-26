@@ -64,15 +64,17 @@
                   <%= form.password_field :password_confirmation, class: "input", placeholder: "Confirmar Contraseña" %>
                 </div>
               </div>
-              <div class="field is-grouped is-grouped-centered">
-                <div class="control">
-                  <%= form.submit "REGISTRARSE", class: "button is-dark" %>
-                </div>
-                <div class="control">
-                  <%= link_to "Registrarse con Google", "#", class: "button google" %>
-                </div>
-                <div class="control">
-                  <%= link_to "INICIAR SESIÓN", login_path, class: "button signup" %>
+              <div class="field">
+                <div class="button-container">
+                  <div class="column">
+                    <%= form.submit @user.new_record? ? "REGISTRARSE" : "ACTUALIZAR", class: "button signup is-fullwidth is-dark" %>
+                  </div>
+                  <div class="column">
+                    <%= link_to "Registrarse con Google", "#", class: "button google is-fullwidth" %>
+                  </div>
+                  <div class="column">
+                    <%= link_to "INICIAR SESIÓN", login_path, class: "button is-light is-fullwidth" %>
+                  </div>
                 </div>
               </div>
             <% end %>

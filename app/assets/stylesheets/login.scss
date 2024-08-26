@@ -21,11 +21,15 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.buttons.is-centered {
+.button-container {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem; /* Espacio entre botones */
+}
+
+.button-container .column {
+  flex: 1 1 auto;
+  min-width: 200px; /* Asegura un tamaño mínimo para los botones */
 }
 
 .button.google {
