@@ -1,0 +1,64 @@
+<!-- app/views/shared/_navbar.html.erb -->
+<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="#">
+      <%= link_to image_tag('logo.png', alt: 'UBBCSA Logo'), main_path, class: 'navbar-item' %>
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item is-active" href="#">
+        <i class="fas fa-home"></i> <span class="navbar-title">Inicio</span>
+      </a>
+
+      <a class="navbar-item" href="#">
+        <i class="fas fa-book"></i> <span class="navbar-title">Cursos</span>
+      </a>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" href="#">
+          <i class="fas fa-bell"></i>
+          <span class="badge is-danger"><%= @unread_count %></span> <!-- Contador de notificaciones no leídas -->
+        </a>
+
+        <div class="navbar-dropdown is-right">
+          <% if @notifications.present? %>
+            <% @notifications.limit(5).each do |notification| %>
+              <a class="navbar-item" href="<%= notification_path(notification) %>">
+                <% if notification.read %>
+                  <p><%= notification.mensaje %></p>
+                <% else %>
+                  <p><strong><%= notification.mensaje %></strong></p>
+                <% end %>
+              </a>
+            <% end %>
+          <% else %>
+            <a class="navbar-item">No tienes notificaciones</a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+      <a class="navbar-item" href="#">
+        <i class="fas fa-search"></i> <span class="navbar-title">Buscar</span>
+      </a>
+
+      <a class="navbar-item" href="#">
+        <i class="fas fa-save"></i> <span class="navbar-title">Guardados</span>
+      </a>
+
+      <a class="navbar-item" href="#">
+        <i class="fas fa-user"></i> <span class="navbar-title">Perfil</span>
+      </a>
+    </div>
+  </div>
+</nav>

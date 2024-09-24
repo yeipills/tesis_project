@@ -1,0 +1,79 @@
+/* _navbar.scss */
+
+/* Estilos generales para la navbar */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-item {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-burger {
+    color: #333;
+  }
+  
+  .navbar-end .navbar-item {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  .navbar-end .navbar-item i {
+    font-size: 1.2rem;
+  }
+  
+  /* Estilos para el icono de notificaciones */
+  .navbar-item .badge {
+    background-color: #ff3860;
+    color: white;
+    border-radius: 50%;
+    padding: 0.3em 0.6em;
+    font-size: 0.75rem;
+    position: absolute;
+    top: 5px; /* Ajustado para una mejor alineación */
+    right: 5px; /* Ajustado para una mejor alineación */
+  }
+  
+  /* Estilos para el dropdown de notificaciones */
+  .navbar-dropdown {
+    min-width: 300px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .navbar-item.has-dropdown.is-hoverable .navbar-link {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-item.has-dropdown.is-hoverable .navbar-link .fas {
+    margin-right: 0.5rem;
+  }
+  
+  .navbar-item.has-dropdown.is-hoverable .navbar-dropdown a.navbar-item {
+    white-space: normal;
+    padding: 10px 20px;
+    border-bottom: 1px solid #eaeaea;
+    transition: background-color 0.2s;
+  }
+  
+  .navbar-item.has-dropdown.is-hoverable .navbar-dropdown a.navbar-item:last-child {
+    border-bottom: none;
+  }
+  
+  .navbar-item.has-dropdown.is-hoverable .navbar-dropdown a.navbar-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Ajustes responsivos para mostrar títulos en pantallas pequeñas */
+  @media screen and (max-width: 768px) {
+    .navbar-title {
+      display: inline;
+      margin-left: 0.5rem;
+    }
+  }
+  

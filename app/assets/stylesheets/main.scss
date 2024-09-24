@@ -5,54 +5,10 @@ body {
   padding: 0;
 }
 
-/* Navbar Customization */
-.navbar {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-item {
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-}
-
-.navbar-burger {
-  color: #333;
-}
-
-.navbar-end .navbar-item {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-.navbar-end .navbar-item i {
-  font-size: 1.2rem;
-}
-
-/* Ocultar títulos en la vista completa */
-.navbar-title {
-  display: none;
-}
-
-/* Mostrar títulos cuando el menú hamburguesa está activo */
-.navbar-menu.is-active .navbar-title {
-  display: inline;
-  margin-left: 0.5rem;
-}
-
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
   .container {
     padding: 1rem;
-  }
-
-  .navbar-burger {
-    color: #333;
-  }
-
-  .navbar-title {
-    display: inline; /* Mostrar títulos en pantallas pequeñas */
-    margin-left: 0.5rem;
   }
 }
 

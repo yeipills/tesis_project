@@ -1,36 +1,19 @@
 class NotificationsController < ApplicationController
   before_action :set_notification, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   def index
-    @notifications = Notification.all
+    @notifications = current_user.notifications.order(created_at: :desc)
+    @unread_count = @notifications.where(read: false).count
   end
 
   def show
+    @notification.update(read: true) if @notification.read == false
   end
 
-  def new
-    @notification = Notification.new
-  end
-
-  def edit
-  end
-
-  def create
-    @notification = Notification.new(notification_params)
-
-    if @notification.save
-      redirect_to @notification, notice: 'Notification was successfully created.'
-    else
-      render :new
-    end
-  end
-
-  def update
-    if @notification.update(notification_params)
-      redirect_to @notification, notice: 'Notification was successfully updated.'
-    else
-      render :edit
-    end
+  def mark_all_as_read
+    current_user.notifications.update_all(read: true)
+    redirect_to notifications_path, notice: 'Todas las notificaciones fueron marcadas como leídas.'
   end
 
   def destroy
@@ -41,10 +24,10 @@ class NotificationsController < ApplicationController
   private
 
   def set_notification
-    @notification = Notification.find(params[:id])
+    @notification = current_user.notifications.find(params[:id])
   end
 
   def notification_params
-    params.require(:notification).permit(:mensaje, :user_id)
+    params.require(:notification).permit(:mensaje, :user_id, :read)
   end
 end

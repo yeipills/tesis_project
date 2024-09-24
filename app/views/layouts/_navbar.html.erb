@@ -1,0 +1,15 @@
+<!-- app/views/layouts/_navbar.html.erb -->
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">
+    <i class="fas fa-bell"></i>
+    <span id="unread-count" class="badge is-danger"><%= @unread_count %></span>
+  </a>
+
+  <div id="notifications-dropdown" class="navbar-dropdown is-right">
+    <% @notifications.each do |notification| %>
+      <%= render partial: 'notifications/notification', locals: { notification: notification } %>
+    <% end %>
+    <hr class="navbar-divider">
+    <a class="navbar-item" href="<%= notifications_path %>">Ver todas las notificaciones</a>
+  </div>
+</div>

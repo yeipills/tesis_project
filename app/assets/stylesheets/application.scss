@@ -1,0 +1,10 @@
+// application.scss
+
+// Importar Bulma y otros estilos globales
+@import "bulma";
+
+// Importar los estilos de la navbar
+@import "navbar"; // Esto incluirá los estilos de _navbar.scss
+
+// Otros estilos
+@import "main";

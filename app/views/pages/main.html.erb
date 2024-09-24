@@ -3,113 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Main - UBBCSA</title>
+  <title>Main Dashboard - UBBCSA</title>
   <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css' %>
   <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css' %>
-  <%= stylesheet_link_tag 'main' %> <!-- Referencia a main.scss -->
+  <%= stylesheet_link_tag 'main' %>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="#">
-        <%= link_to image_tag('logo.png', alt: 'UBBCSA Logo'), main_path, class: 'navbar-item' %>
-      </a>
+<%= render 'shared/navbar' %>
 
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item is-active" href="#">
-          <i class="fas fa-home"></i> <span class="navbar-title">Inicio</span>
-        </a>
+  <!-- Dashboard Principal -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Bienvenido, [Nombre del Usuario]</h1>
+      <h2 class="subtitle">Tu progreso hasta ahora:</h2>
 
-        <a class="navbar-item" href="#">
-          <i class="fas fa-book"></i> <span class="navbar-title">Cursos</span>
-        </a>
-      </div>
-
-      <div class="navbar-end">
-        <a class="navbar-item" href="#">
-          <i class="fas fa-search"></i> <span class="navbar-title">Buscar</span>
-        </a>
-
-        <a class="navbar-item" href="#">
-          <i class="fas fa-save"></i> <span class="navbar-title">Guardados</span>
-        </a>
-
-        <a class="navbar-item" href="#">
-          <i class="fas fa-user"></i> <span class="navbar-title">Perfil</span>
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Content -->
-  <div class="container" id="main-content">
-    <section class="section">
-      <h1 class="title">Cursos Destacados</h1>
-      <div class="columns is-multiline">
-        <!-- Example card -->
-        <div class="column is-3">
-          <div class="card">
-            <div class="card-content">
-              <p class="title is-4">Power BI</p>
-              <p class="subtitle is-6">John Eames</p>
-              <p><i class="fas fa-clock"></i> 1h 53m</p>
-              <p><i class="fas fa-star"></i> 4.9/5</p>
-            </div>
-          </div>
-        </div>
-        <!-- More cards can be added here -->
-      </div>
-    </section>
-
-    <section class="section">
-      <h1 class="title">Categorías</h1>
-      <div class="buttons is-centered">
-        <button class="button is-light">Ventas</button>
-        <button class="button is-light">Recursos Humanos</button>
-        <button class="button is-light">Dibujo</button>
-        <button class="button is-light">Big Data</button>
-        <button class="button is-light">Diseño</button>
-        <button class="button is-light">Marketing</button>
-        <button class="button is-light">Astronomía</button>
-      </div>
-    </section>
-
-    <section class="section">
-      <h1 class="title">Mi Aprendizaje</h1>
+      <!-- Progreso de los Cursos -->
       <div class="columns">
-        <div class="column is-6">
+        <div class="column is-4">
           <div class="card">
             <div class="card-content">
-              <p class="title is-4">Conviértete en Fotógrafo</p>
-              <p class="subtitle is-6">Clara Manning</p>
-              <progress class="progress is-primary" value="69" max="100">69%</progress>
+              <p class="title is-5">Seguridad en Redes</p>
+              <p class="subtitle is-6">Progreso: 70%</p>
+              <progress class="progress is-primary" value="10" max="100">10%</progress>
+              <a href="#" class="button is-primary is-fullwidth">Continuar Curso</a>
             </div>
           </div>
         </div>
-        <div class="column is-6">
+        <div class="column is-4">
           <div class="card">
             <div class="card-content">
-              <p class="title is-4">Design Thinking 2.0</p>
-              <p class="subtitle is-6">Chris Kinley</p>
-              <progress class="progress is-primary" value="27" max="100">27%</progress>
+              <p class="title is-5">Seguridad en BD</p>
+              <p class="subtitle is-6">Progreso: 70%</p>
+              <progress class="progress is-primary" value="40" max="100">40%</progress>
+              <a href="#" class="button is-primary is-fullwidth">Continuar Curso</a>
+            </div>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-content">
+              <p class="title is-5">Seguridad en </p>
+              <p class="subtitle is-6">Progreso: 70%</p>
+              <progress class="progress is-primary" value="70" max="100">70%</progress>
+              <a href="#" class="button is-primary is-fullwidth">Continuar Curso</a>
             </div>
           </div>
         </div>
       </div>
-      <button class="button is-dark is-fullwidth">Ver Todos</button>
-    </section>
-  </div>
 
+
+
+      <!-- Cursos Recomendados -->
+      <div class="section">
+        <h2 class="title">Cursos Recomendados para Ti</h2>
+        <div class="columns is-multiline">
+          <div class="column is-3">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="path_to_image" alt="Descripción del curso">
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-5">Introducción a la Criptografía</p>
+                <a href="#" class="button is-primary is-fullwidth">Ver Curso</a>
+              </div>
+            </div>
+          </div>
+          <div class="column is-3">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="path_to_image" alt="Descripción del curso">
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-5">Introducción a la Criptografía</p>
+                <a href="#" class="button is-primary is-fullwidth">Ver Curso</a>
+              </div>
+            </div>
+          </div>
+          <div class="column is-3">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="path_to_image" alt="Descripción del curso">
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-5">Introducción a la Criptografía</p>
+                <a href="#" class="button is-primary is-fullwidth">Ver Curso</a>
+              </div>
+            </div>
+          </div>
+          <div class="column is-3">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="path_to_image" alt="Descripción del curso">
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-5">Introducción a la Criptografía</p>
+                <a href="#" class="button is-primary is-fullwidth">Ver Curso</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </section>
+
+  <!-- Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
