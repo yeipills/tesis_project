@@ -1,8 +1,6 @@
-# Created by https://www.toptal.com/developers/gitignore/api/node,ruby,rails
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,ruby,rails
+# Node.js & Ruby on Rails .gitignore file
 
-### Node ###
-# Logs
+### Logs ###
 logs
 *.log
 npm-debug.log*
@@ -10,9 +8,6 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
-
-# Diagnostic reports (https://nodejs.org/api/report.html)
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # Runtime data
 pids
@@ -24,66 +19,23 @@ pids
 lib-cov
 
 # Coverage directory used by tools like istanbul
-coverage
+coverage/
 *.lcov
-
-# nyc test coverage
-.nyc_output
-
-# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
-
-# Bower dependency directory (https://bower.io/)
-bower_components
-
-# node-waf configuration
-.lock-wscript
-
-# Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
 
 # Dependency directories
 node_modules/
 jspm_packages/
+bower_components/
+vendor/assets/bower_components/
 
-# Snowpack dependency directory (https://snowpack.dev/)
-web_modules/
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
-# Optional stylelint cache
-.stylelintcache
-
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# dotenv environment variable files
+# Dotenv environment variable files
 .env
+.env.local
 .env.development.local
 .env.test.local
 .env.production.local
-.env.local
 
-# parcel-bundler cache (https://parceljs.org/)
+# Parcel cache
 .cache
 .parcel-cache
 
@@ -91,57 +43,26 @@ web_modules/
 .next
 out
 
-# Nuxt.js build / generate output
-.nuxt
-dist
-
-# Gatsby files
-.cache/
-# Comment in the public line in if your project uses Gatsby and not Next.js
-# https://nextjs.org/blog/next-9-1#public-directory-support
-# public
-
-# vuepress build output
+# Vuepress
 .vuepress/dist
 
-# vuepress v2.x temp and cache directory
-.temp
+# Yarn and npm
+.yarn-integrity
+.yarn-error.log
+.npm
 
-# Docusaurus cache and generated files
-.docusaurus
+# Ignore TypeScript build cache
+*.tsbuildinfo
 
-# Serverless directories
-.serverless/
+# Ignore Docker related files
+.dockerignore
+Dockerfile
 
-# FuseBox cache
-.fusebox/
+# Ignore sensitive files
+/server.crt
+/server.key
 
-# DynamoDB Local files
-.dynamodb/
-
-# TernJS port file
-.tern-port
-
-# Stores VSCode versions used for testing VSCode extensions
-.vscode-test
-
-# yarn v2
-.yarn/cache
-.yarn/unplugged
-.yarn/build-state.yml
-.yarn/install-state.gz
-.pnp.*
-
-### Node Patch ###
-# Serverless Webpack directories
-.webpack/
-
-# Optional stylelint cache
-
-# SvelteKit build / generate output
-.svelte-kit
-
-### Rails ###
+# Rails specific
 *.rbc
 capybara-*.html
 .rspec
@@ -155,60 +76,31 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 
-# Ignore all logfiles and tempfiles.
+# Log and temp files
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
 
-# TODO Comment out this rule if you are OK with secrets being uploaded to the repo
+# Secret files (avoid uploading secrets)
 config/initializers/secret_token.rb
 config/master.key
 
-# Only include if you have production secrets in this file, which is no longer a Rails default
-# config/secrets.yml
-
-# dotenv, dotenv-rails
-# TODO Comment out these rules if environment variables can be committed
-.env*.local
-
-## Environment normalization:
-/.bundle
-/vendor/bundle
-
-# these should all be checked in to normalize the environment:
-# Gemfile.lock, .ruby-version, .ruby-gemset
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
-
-# if using bower-rails ignore default bower_components path bower.json files
-/vendor/assets/bower_components
-*.bowerrc
-bower.json
-
-# Ignore pow environment settings
-.powenv
-
-# Ignore Byebug command history file.
-.byebug_history
-
-# Ignore node_modules
-
-# Ignore precompiled javascript packs
+# Ignore precompiled assets
 /public/packs
 /public/packs-test
 /public/assets
 
-# Ignore yarn files
-/yarn-error.log
-
-# Ignore uploaded files in development
+# Ignore storage files except .keep
 /storage/*
 !/storage/.keep
-/public/uploads
 
-### Ruby ###
+# Ignore yarn and npm cache files
+.yarn-integrity
+.yarn-error.log
+.npm
+
+# Ignore Ruby specific files
 *.gem
 /.config
 /InstalledFiles
@@ -219,44 +111,15 @@ bower.json
 /test/version_tmp/
 /tmp/
 
-# Used by dotenv library to load environment variables.
-# .env
+# VSCode settings
+.vscode/
 
-# Ignore Byebug command history file.
+# Ignore sensitive certificates
+/server.crt
+/server.key
 
-## Specific to RubyMotion:
-.dat*
-.repl_history
-build/
-*.bridgesupport
-build-iPhoneOS/
-build-iPhoneSimulator/
+# Ignore byebug history file
+.byebug_history
 
-## Specific to RubyMotion (use of CocoaPods):
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-# vendor/Pods/
-
-## Documentation cache and generated files:
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
-
-/.bundle/
-/lib/bundler/man/
-
-# for a library or gem, you might want to ignore these files since the code is
-# intended to run in multiple environments; otherwise, check them in:
-# Gemfile.lock
-# .ruby-version
-# .ruby-gemset
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-
-# Used by RuboCop. Remote config files pulled in from inherit_from directive.
-# .rubocop-https?--*
-
-# End of https://www.toptal.com/developers/gitignore/api/node,ruby,rails
+# Ignore RuboCop config pulled from remote
+.rubocop-https?--*
